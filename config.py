@@ -1,5 +1,6 @@
 import os
 SECRET_KEY = os.urandom(32)
+from decouple import config
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -10,4 +11,5 @@ DEBUG = True
 
 
 # TODO IMPLEMENT DATABASE URL
-SQLALCHEMY_DATABASE_URI = '<Put your local database url>'
+SQLALCHEMY_DATABASE_URI = config("SQLALCHEMY_DATABASE_URI")
+SQLALCHEMY_TRACK_MODIFICATIONS = False
